@@ -17,7 +17,6 @@ import com.amap.api.maps.model.Polygon;
 import com.amap.api.maps.model.PolygonOptions;
 
 public class MainActivity extends AppCompatActivity {
-    private MapView mapView;
     private AMap aMap;
     private MarkSizeView markSizeView;
     private AppCompatTextView txtTips;
@@ -29,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mapView = findViewById(R.id.map_view);
+        MapView mapView = findViewById(R.id.map_view);
         markSizeView = findViewById(R.id.mark_size);
         txtTips = findViewById(R.id.capture_tips);
         btnPaint = findViewById(R.id.btn_paint);
