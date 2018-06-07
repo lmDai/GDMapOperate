@@ -1,4 +1,4 @@
-package cn.yznu.gdmapoperate;
+package cn.yznu.gdmapoperate.ui.actvity;
 
 import android.graphics.Color;
 import android.graphics.Point;
@@ -16,7 +16,10 @@ import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.Polygon;
 import com.amap.api.maps.model.PolygonOptions;
 
-public class MainActivity extends AppCompatActivity {
+import cn.yznu.gdmapoperate.ui.widget.MarkSizeView;
+import cn.yznu.gdmapoperate.R;
+
+public class ElectricFenceActivity extends AppCompatActivity {
     private AMap aMap;
     private MarkSizeView markSizeView;
     private AppCompatTextView txtTips;
@@ -27,7 +30,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_electric_fence);
+
         MapView mapView = findViewById(R.id.map_view);
         markSizeView = findViewById(R.id.mark_size);
         txtTips = findViewById(R.id.capture_tips);

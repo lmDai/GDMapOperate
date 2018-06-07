@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="main_string">
+        <item>显示地图</item>
+        <item>电子围栏</item>
+        <item>显示地图</item>
+        <item>显示地图</item>
+        <item>显示地图</item>
+        <item>显示地图</item>
+        <item>显示地图</item>
+        <item>显示地图</item>
+        <item>显示地图</item>
+        <item>显示地图</item>
+        <item>显示地图</item>
+        <item>显示地图</item>
+        <item>显示地图</item>
+        <item>显示地图</item>
+        <item>显示地图</item>
+        <item>显示地图</item>
+        <item>显示地图</item>
+        <item>显示地图</item>
+        <item>显示地图</item>
+        <item>显示地图</item>
+        <item>显示地图</item>
+        <item>显示地图</item>
+    </string-array>
+</resources>

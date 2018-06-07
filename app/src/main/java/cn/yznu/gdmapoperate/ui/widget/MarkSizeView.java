@@ -1,4 +1,4 @@
-package cn.yznu.gdmapoperate;
+package cn.yznu.gdmapoperate.ui.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -20,6 +20,9 @@ import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import cn.yznu.gdmapoperate.R;
+import cn.yznu.gdmapoperate.utils.ViewUtil;
 
 /**
  * 作者：uiho_mac

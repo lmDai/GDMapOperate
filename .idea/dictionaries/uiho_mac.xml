@@ -1,3 +1,10 @@
 <component name="ProjectDictionaryState">
-  <dictionary name="uiho_mac" />
+  <dictionary name="uiho_mac">
+    <words>
+      <w>basicmap</w>
+      <w>navimap</w>
+      <w>nightmap</w>
+      <w>rsmap</w>
+    </words>
+  </dictionary>
 </component>

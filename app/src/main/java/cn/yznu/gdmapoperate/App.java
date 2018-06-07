@@ -1,10 +1,7 @@
 package cn.yznu.gdmapoperate;
 
-import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
-
-import java.util.Set;
 
 /**
  * 作者：uiho_mac
@@ -16,7 +13,6 @@ import java.util.Set;
 
 public class App extends Application {
     private static App instance;
-    private Set<Activity> allActivities;
 
 
     public static App getInstance() {
