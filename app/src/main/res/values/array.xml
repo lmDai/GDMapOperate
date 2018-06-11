@@ -2,9 +2,9 @@
 <resources>
     <string-array name="main_string">
         <item>显示地图</item>
+        <item>定位</item>
         <item>电子围栏</item>
-        <item>显示地图</item>
-        <item>显示地图</item>
+        <item>导航</item>
         <item>显示地图</item>
         <item>显示地图</item>
         <item>显示地图</item>

@@ -11,10 +11,16 @@ package cn.yznu.gdmapoperate;
 public class DemoModel {
     private String title;
     private Class clazz;
+    private int icon;
 
-    public DemoModel(String title, Class clazz) {
+    public DemoModel(String title, Class clazz, int icon) {
         this.title = title;
         this.clazz = clazz;
+        this.icon = icon;
+    }
+
+    public int getIcon() {
+        return icon;
     }
 
     public String getTitle() {

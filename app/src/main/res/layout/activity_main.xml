@@ -1,36 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    android:orientation="vertical">
+    android:background="@drawable/background">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/recommand_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@color/colorAccent"
-        android:gravity="center"
-        android:minHeight="?attr/actionBarSize"
-        app:contentInsetStart="0dp">
+    <!--1. 中间可滑动的viewPager-->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="首页"
-            android:textColor="#ffffff"
-            android:textSize="18sp" />
-
-    </android.support.v7.widget.Toolbar>
-
-    <ListView
-        android:id="@+id/list_view"
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FFFFFF"
-        android:divider="#ddcccccc"
-        android:dividerHeight="6dp" />
-</LinearLayout>
+        android:layout_alignParentBottom="true"
+        android:clipToPadding="false"
+        android:paddingEnd="48dp"
+        android:paddingLeft="48dp"
+        android:paddingRight="48dp"
+        android:paddingStart="48dp" />
+
+
+    <!--2. 底部的三个图标按钮-->
+
+    <RelativeLayout
+        android:id="@+id/bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true">
+
+
+        <ImageView
+            android:id="@+id/img_like"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/icon2" />
+
+
+    </RelativeLayout>
+
+    <!--3. viewPager的指示器-->
+    <!--注意！！此处指示器的高度，需要跟DragLayout协商好(card_extra_height)-->
+    <TextView
+        android:id="@+id/indicator_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_above="@+id/bottom_layout"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_vertical"
+        android:text="1/199"
+        android:textColor="#ffffff"
+        android:textSize="16sp" />
+
+    <!--4. 顶部的titleBar-->
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!--沉浸式activity，这个view是用来占位的-->
+
+        <View
+            android:id="@+id/position_view"
+            android:layout_width="1px"
+            android:layout_height="1px" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="地图操作"
+                android:textColor="#ffffff"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
