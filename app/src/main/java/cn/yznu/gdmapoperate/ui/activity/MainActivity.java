@@ -1,5 +1,6 @@
 package cn.yznu.gdmapoperate.ui.activity;
 
+import android.app.Dialog;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -8,6 +9,8 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
+import android.view.Display;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -65,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         imgLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                showDialog();
             }
         });
         dealStatusBar(); // 调整状态栏高度
@@ -163,6 +166,19 @@ public class MainActivity extends AppCompatActivity {
             e1.printStackTrace();
         }
         return statusBarHeight;
+    }
+
+    public void showDialog() {
+        Dialog dialog = new Dialog(this, R.style.CustomDialog);
+        dialog.show();
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View viewDialog = inflater.inflate(R.layout.dialog_like, null);
+        Display display = this.getWindowManager().getDefaultDisplay();
+        int width = display.getWidth();
+        int height = display.getHeight();
+        //设置dialog的宽高为屏幕的宽高
+        ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(width, height);
+        dialog.setContentView(viewDialog, layoutParams);
     }
 
 }
