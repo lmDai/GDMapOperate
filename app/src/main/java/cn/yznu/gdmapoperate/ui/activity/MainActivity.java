@@ -41,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private List<CommonFragment> fragments = new ArrayList<>(); // 供ViewPager使用
     private Class[] clazz = new Class[]{ShowMapActivity.class, LocationActivity.class, ElectricFenceActivity.class,
-            NaviRouteActivity.class};
-    private int[] icons = new int[]{R.drawable.map, R.drawable.dingwei, R.drawable.weilan, R.drawable.daohang};
+            NaviRouteActivity.class,SearchActivity.class};
+    private int[] icons = new int[]{R.drawable.map, R.drawable.dingwei, R.drawable.weilan, R.drawable.daohang, R.drawable.ic_search};
     private List<DemoModel> mList = new ArrayList<>();
     private ImageView imgLike;
 
