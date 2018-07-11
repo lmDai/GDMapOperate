@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         app:behavior_hideable="true"
-        app:behavior_peekHeight="100dp"
+        app:behavior_peekHeight="160dp"
         app:layout_behavior="@string/bottom_sheet_behavior">
 
         <include layout="@layout/layout_bottom_sheet" />

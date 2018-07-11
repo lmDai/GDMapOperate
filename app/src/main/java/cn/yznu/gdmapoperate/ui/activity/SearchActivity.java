@@ -1,5 +1,6 @@
 package cn.yznu.gdmapoperate.ui.activity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -34,7 +35,10 @@ import com.amap.api.services.geocoder.RegeocodeQuery;
 import com.amap.api.services.geocoder.RegeocodeResult;
 import com.amap.api.services.geocoder.RegeocodeRoad;
 import com.amap.api.services.geocoder.StreetNumber;
+import com.chad.library.adapter.base.BaseQuickAdapter;
 
+import java.io.File;
+import java.net.URISyntaxException;
 import java.util.List;
 
 import cn.yznu.gdmapoperate.R;
@@ -57,6 +61,11 @@ public class SearchActivity extends AppCompatActivity implements LocationSource,
     private LatLng point;
     private Marker marker;
     private AMap aMap;
+    private static final double LATITUDE_A = 28.1903;  //起点纬度
+    private static final double LONGTITUDE_A = 113.031738;  //起点经度
+
+    private static final double LATITUDE_B = 28.187519;  //终点纬度
+    private static final double LONGTITUDE_B = 113.029713;  //终点经度
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -117,17 +126,6 @@ public class SearchActivity extends AppCompatActivity implements LocationSource,
             recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         }
-        aMap.setOnMapClickListener(new AMap.OnMapClickListener() {
-            @Override
-            public void onMapClick(LatLng latLng) {
-                if (behavior.getState() == BottomSheetBehavior.STATE_HIDDEN) {
-                    behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-                } else {
-                    behavior.setState(BottomSheetBehavior.STATE_HIDDEN);
-                }
-            }
-        });
-
     }
 
     /***
@@ -319,6 +317,14 @@ public class SearchActivity extends AppCompatActivity implements LocationSource,
                     adapter = new GaodeAdapter(pois);
                     recyclerView.setAdapter(adapter);
                     recyclerView.setItemAnimator(new DefaultItemAnimator());
+                    adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+//                            setUpGaodeAppByMine();
+//                            setUpGaodeAppByName();
+                            setUpGaodeAppByLoca();
+                        }
+                    });
                 }
 
 
@@ -332,6 +338,63 @@ public class SearchActivity extends AppCompatActivity implements LocationSource,
 
     }
 
+    /**
+     * 判断是否安装目标应用
+     *
+     * @param packageName 目标应用安装后的包名
+     * @return 是否已安装目标应用
+     */
+    private boolean isInstallByread(String packageName) {
+        return new File("/data/data/" + packageName).exists();
+    }
 
+    /**
+     * 确定起终点坐标BY高德
+     */
+    void setUpGaodeAppByLoca() {
+        try {
+            Intent intent = Intent.getIntent("androidamap://route?sourceApplication=softname&slat=" + LATITUDE_A + "&slon=" + LONGTITUDE_A + "&sname=" + "万家丽国际Mall" + "&dlat=" + LATITUDE_B + "&dlon=" + LONGTITUDE_B + "&dname=" + "东郡华城广场|A座" + "&dev=0&m=0&t=1");
+            if (isInstallByread("com.autonavi.minimap")) {
+                startActivity(intent);
+
+            } else {
+                Log.e("single", "没有安装高德地图客户端");
+            }
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 确认起终点名称BY高德
+     */
+    void setUpGaodeAppByName() {
+        try {
+            Intent intent = Intent.getIntent("androidamap://route?sourceApplication=softname" + "&sname=" + "万家丽国际Mall" + "&dname=" + "东郡华城广场|A座" + "&dev=0&m=0&t=1");
+            if (isInstallByread("com.autonavi.minimap")) {
+                startActivity(intent);
+            } else {
+                Log.e("single", "没有安装高德地图客户端");
+            }
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 我的位置BY高德
+     */
+    void setUpGaodeAppByMine() {
+        try {
+            Intent intent = Intent.getIntent("androidamap://route?sourceApplication=softname&sname=我的位置&dlat=" + LATITUDE_B + "&dlon=" + LONGTITUDE_B + "&dname=" + "东郡华城广场|A座" + "&dev=0&m=0&t=1");
+            if (isInstallByread("com.autonavi.minimap")) {
+                startActivity(intent);
+            } else {
+                Log.e("single", "没有安装高德地图客户端");
+            }
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+    }
 }
 
