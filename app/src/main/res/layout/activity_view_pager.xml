@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <cn.yznu.gdmapoperate.ui.widget.WrapContentHeightViewPager
+            android:id="@+id/body_vp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.flyco.tablayout.SlidingTabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/colorPrimaryDark"
+            android:paddingBottom="10dp"
+            app:tl_indicator_color="#000"
+            app:tl_indicator_margin_top="10dp"
+            app:tl_indicator_width_equal_title="true"
+            app:tl_tab_space_equal="true"
+            app:tl_textSelectColor="#f00"
+            app:tl_textUnselectColor="#fff"
+            app:tl_textsize="17sp" />
+
+        <cn.yznu.gdmapoperate.ui.widget.WrapContentHeightViewPager
+            android:id="@+id/header_vp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

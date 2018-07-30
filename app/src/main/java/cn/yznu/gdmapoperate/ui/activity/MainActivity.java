@@ -41,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private List<CommonFragment> fragments = new ArrayList<>(); // 供ViewPager使用
     private Class[] clazz = new Class[]{ShowMapActivity.class, LocationActivity.class, ElectricFenceActivity.class,
-            NaviRouteActivity.class,SearchActivity.class};
-    private int[] icons = new int[]{R.drawable.map, R.drawable.dingwei, R.drawable.weilan, R.drawable.daohang, R.drawable.ic_search};
+            NaviRouteActivity.class, SearchActivity.class, TestActivity.class};
+    private int[] icons = new int[]{R.drawable.map, R.drawable.dingwei, R.drawable.weilan, R.drawable.daohang, R.drawable.ic_search, R.drawable.dingwei};
     private List<DemoModel> mList = new ArrayList<>();
     private ImageView imgLike;
 
@@ -180,5 +180,4 @@ public class MainActivity extends AppCompatActivity {
         ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(width, height);
         dialog.setContentView(viewDialog, layoutParams);
     }
-
 }
