@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.amap.api.maps.MapView;
+
 import cn.yznu.gdmapoperate.R;
 import cn.yznu.gdmapoperate.ui.activity.ViewPagerActivity;
 import cn.yznu.gdmapoperate.ui.widget.ObservableScrollView;
@@ -22,6 +24,7 @@ import cn.yznu.gdmapoperate.utils.ViewUtil;
 
 public class ViewpagerTopOneFragment extends BaseScrollFragment {
     private ObservableScrollView scrollView;
+    private MapView mapView;
 
     @Nullable
     @Override
@@ -32,6 +35,8 @@ public class ViewpagerTopOneFragment extends BaseScrollFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        mapView = view.findViewById(R.id.map_view);
+        mapView.onCreate(savedInstanceState);
         scrollView = (ObservableScrollView) view.findViewById(R.id.scrollView);
         scrollView.setOnScrollChangedListener(new OnScrollChangedListener() {
             @Override

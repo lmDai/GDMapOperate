@@ -9,10 +9,16 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/color_bule"
-         android:text="@string/string_scoll" />
+            android:text="@string/string_scoll" />
+
+        <com.amap.api.maps.MapView
+            android:id="@+id/map_view"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
     </LinearLayout>
 </cn.yznu.gdmapoperate.ui.widget.ObservableScrollView>
