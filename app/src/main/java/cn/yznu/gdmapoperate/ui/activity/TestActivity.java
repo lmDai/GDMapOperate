@@ -31,6 +31,7 @@ public class TestActivity extends AppCompatActivity {
 
     public void initData() {
         data.add(new DemoModel("两个viewpager联动", ViewPagerActivity.class, 0));
+        data.add(new DemoModel("RecyclerView实现Gallery画廊效果", RecyclerviewCardGalleryActivity.class, 0));
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         adapter = new UIDemoAdapter(data);
         adapter.openLoadAnimation(BaseQuickAdapter.SCALEIN);
@@ -39,7 +40,9 @@ public class TestActivity extends AppCompatActivity {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 DemoModel demoModel = (DemoModel) adapter.getItem(position);
-                startActivity(new Intent(TestActivity.this, demoModel.getClazz()));
+                if (demoModel != null) {
+                    startActivity(new Intent(TestActivity.this, demoModel.getClazz()));
+                }
             }
         });
     }

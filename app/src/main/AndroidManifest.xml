@@ -63,7 +63,8 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@android:style/Theme.NoTitleBar" />
         <activity android:name=".ui.activity.TestActivity" />
-        <activity android:name=".ui.activity.ViewPagerActivity"></activity>
+        <activity android:name=".ui.activity.ViewPagerActivity" />
+        <activity android:name=".ui.activity.RecyclerviewCardGalleryActivity" />
     </application>
 
 </manifest>
